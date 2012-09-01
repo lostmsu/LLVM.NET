@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{218E291B-4EE7-4526-B4F6-EF72FDE40E90}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LLVM</RootNamespace>
+    <AssemblyName>CodeGen.LLVM</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
+    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
+    <CodeContractsRunCodeAnalysis>True</CodeContractsRunCodeAnalysis>
+    <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
+    <CodeContractsEnumObligations>False</CodeContractsEnumObligations>
+    <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>False</CodeContractsShowSquigglies>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+    <CodeContractsCustomRewriterAssembly />
+    <CodeContractsCustomRewriterClass />
+    <CodeContractsLibPaths />
+    <CodeContractsExtraRewriteOptions />
+    <CodeContractsExtraAnalysisOptions />
+    <CodeContractsBaseLineFile />
+    <CodeContractsCacheAnalysisResults>True</CodeContractsCacheAnalysisResults>
+    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsReferenceAssembly>%28none%29</CodeContractsReferenceAssembly>
+    <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GarbageCollection\NativeGlue.cs" />
+    <Compile Include="Instructions\Switch.cs" />
+    <Compile Include="Types\ArrayType.cs" />
+    <Compile Include="Values\Argument.cs" />
+    <Compile Include="Structure\Block.cs" />
+    <Compile Include="Instructions\Branch.cs" />
+    <Compile Include="Instructions\Call.cs" />
+    <Compile Include="Core\CallingConvention.cs" />
+    <Compile Include="Types\CompositeType.cs" />
+    <Compile Include="Constants\Constant.cs" />
+    <Compile Include="Core\Context.cs" />
+    <Compile Include="Types\DerivedType.cs" />
+    <Compile Include="Core\ExecutionEngine.cs" />
+    <Compile Include="Structure\Function.cs" />
+    <Compile Include="Types\FunctionType.cs" />
+    <Compile Include="GarbageCollection\GarbageCollector.cs" />
+    <Compile Include="GarbageCollection\SafePointKind.cs" />
+    <Compile Include="GarbageCollection\ShadowStack.cs" />
+    <Compile Include="Values\GlobalValue.cs" />
+    <Compile Include="Instructions\Instruction.cs" />
+    <Compile Include="Core\InstructionBuilder.cs" />
+    <Compile Include="Instructions\IntegerComparison.cs" />
+    <Compile Include="Constants\IntegerConstant.cs" />
+    <Compile Include="Types\IntegerType.cs" />
+    <Compile Include="Utils\IntPtrExtension.cs" />
+    <Compile Include="Core\LayoutInfo.cs" />
+    <Compile Include="llvm.cs" />
+    <Compile Include="Instructions\Load.cs" />
+    <Compile Include="Structure\Module.cs" />
+    <Compile Include="Constants\PointerConstant.cs" />
+    <Compile Include="Types\PointerType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\ReferenceBase.cs" />
+    <Compile Include="Instructions\Return.cs" />
+    <Compile Include="Types\SequentialType.cs" />
+    <Compile Include="Instructions\StackAlloc.cs" />
+    <Compile Include="Instructions\Store.cs" />
+    <Compile Include="Types\StructType.cs" />
+    <Compile Include="Core\Target.cs" />
+    <Compile Include="Instructions\Terminator.cs" />
+    <Compile Include="Types\Type.cs" />
+    <Compile Include="Types\TypeKind.cs" />
+    <Compile Include="Instructions\Unary.cs" />
+    <Compile Include="Values\User.cs" />
+    <Compile Include="Values\Value.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CheckExternal.fsx" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
