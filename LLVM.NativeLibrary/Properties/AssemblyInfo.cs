@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("LLVM.NativeLibrary")]
-[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("LLVM .NET")]
@@ -34,4 +33,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.0.1")]
 [assembly: AssemblyFileVersion("0.0.1")]
-[assembly: AssemblyDescription("This assembly provides native LLVM dynamic library for Win32 and x64")]
+[assembly: AssemblyDescription("This assembly provides native LLVM dynamic libraries for Win32 and x64")]
