@@ -1,29 +1,33 @@
 #include "llvm-c/Target.h"
+#include "DllApi.h"
+//#include "stdlib.h"
 
-extern "C" void LLVMInitializeAllTargetsDynamicLibrary(){
+LLVMDLL_FUNC(void) LLVMInitializeAllTargetsDynamicLibrary(){
 	LLVMInitializeAllTargets();
 }
 
-extern "C" bool LLVMInitializeNativeTargetDynamicLibrary(){
-	return LLVMInitializeNativeTarget();
+LLVMDLL_FUNC(bool) LLVMInitializeNativeTargetDynamicLibrary(){
+	LLVMBool success = LLVMInitializeNativeTarget();
+	printf("initialization status: %d", success);
+	return success;
 }
 
-extern "C" void LLVMInitializeAllTargetInfosDynamicLibrary(){
+LLVMDLL_FUNC(void) LLVMInitializeAllTargetInfosDynamicLibrary(){
 	LLVMInitializeAllTargetInfos();
 }
 
-extern "C" void LLVMInitializeAllTargetMCsDynamicLibrary(){
+LLVMDLL_FUNC(void) LLVMInitializeAllTargetMCsDynamicLibrary(){
 	LLVMInitializeAllTargetMCs();
 }
 
-extern "C" void LLVMInitializeAllAsmPrintersDynamicLibrary() {
+LLVMDLL_FUNC(void) LLVMInitializeAllAsmPrintersDynamicLibrary() {
 	LLVMInitializeAllAsmPrinters();
 }
 
-extern "C" void LLVMInitializeAllAsmParsersDynamicLibrary() {
+LLVMDLL_FUNC(void) LLVMInitializeAllAsmParsersDynamicLibrary() {
 	LLVMInitializeAllAsmParsers();
 }
 
-extern "C" void LLVMInitializeAllDisassemblersDynamicLibrary() {
+LLVMDLL_FUNC(void) LLVMInitializeAllDisassemblersDynamicLibrary() {
 	LLVMInitializeAllDisassemblers();
 }

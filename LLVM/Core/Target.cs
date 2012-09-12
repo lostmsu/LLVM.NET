@@ -10,7 +10,6 @@ namespace LLVM
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <returns>false if there was no errors, else true</returns>
 		public static void InitializeNative()
 		{
 			if (llvm.InitializeNative())

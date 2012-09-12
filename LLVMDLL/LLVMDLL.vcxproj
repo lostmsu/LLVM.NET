@@ -217,6 +217,9 @@ copy $(TargetDir)\$(TargetName).pdb $(SolutionDir)\CodeBlock\bin\$(Configuration
     <ClCompile Include="Targets.cpp" />
     <ClCompile Include="Types.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DllApi.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

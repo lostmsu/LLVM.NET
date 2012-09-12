@@ -2,6 +2,8 @@
 #include "llvm/CodeGen/GCMetadata.h"
 #include "llvm/Support/Compiler.h"
 
+#include "DllApi.h"
+
 using namespace llvm;
 
 namespace {
@@ -53,11 +55,11 @@ namespace {
 		}
 	};
 
-	extern "C" GCStrategy* LLVMCreateExternalGC(ExternalGCInfo info){
+	LLVMDLL_FUNC(GCStrategy*) LLVMCreateExternalGC(ExternalGCInfo info){
 		return new ExternalGC(info);
 	}
 
-	extern "C" GCRegistry::node* LLVMRegisterExternalGC(
+	LLVMDLL_FUNC(GCRegistry::node*) LLVMRegisterExternalGC(
 			const char* name, const char* descr, GCStrategy* (*ctor)()){
 		GCRegistry::entry* gcentry = new GCRegistry::entry(name, descr, ctor);
 		return new GCRegistry::node(*gcentry);

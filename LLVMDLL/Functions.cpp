@@ -1,7 +1,8 @@
 #include "llvm-c/Core.h"
+#include "DllApi.h"
 
 using namespace llvm;
 
-extern "C" void LLVMDump(LLVMValueRef fun){
+LLVMDLL_FUNC(void) LLVMDump(LLVMValueRef fun){
 	unwrap(fun)->dump();
 }
