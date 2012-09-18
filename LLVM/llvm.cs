@@ -20,6 +20,13 @@ namespace LLVM
 		[DllImport(llvmdll, CallingConvention=CC.Cdecl, EntryPoint = "LLVMIntTypeInContext")]
 		public static extern IntPtr GetInt(IntPtr context, int bits);
 
+		[DllImport(llvmdll, CallingConvention = CC.Cdecl, EntryPoint = "LLVMFloatTypeInContext")]
+		public static extern IntPtr GetFloat(IntPtr context);
+
+		[DllImport(llvmdll, CallingConvention = CC.Cdecl, EntryPoint = "LLVMDoubleTypeInContext")]
+		public static extern IntPtr GetDouble(IntPtr context);
+
+
 		[DllImport(llvmdll, CallingConvention=CC.Cdecl, EntryPoint = "LLVMVoidTypeInContext")]
 		public static extern IntPtr GetVoid(IntPtr context);
 

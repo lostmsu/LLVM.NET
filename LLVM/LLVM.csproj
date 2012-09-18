@@ -71,6 +71,7 @@
     <Compile Include="GarbageCollection\NativeGlue.cs" />
     <Compile Include="Instructions\Switch.cs" />
     <Compile Include="Types\ArrayType.cs" />
+    <Compile Include="Types\FloatType.cs" />
     <Compile Include="Values\Argument.cs" />
     <Compile Include="Structure\Block.cs" />
     <Compile Include="Instructions\Branch.cs" />
