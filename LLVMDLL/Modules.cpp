@@ -1,4 +1,5 @@
-#include "llvm/GlobalVariable.h"
+#include "llvm/IR/GlobalVariable.h"
+#include "llvm/IR/Module.h"
 #include "llvm-c/Core.h"
 #include "DllApi.h"
 

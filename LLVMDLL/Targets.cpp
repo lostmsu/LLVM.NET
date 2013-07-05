@@ -1,6 +1,6 @@
 #include "llvm-c/Target.h"
 #include "DllApi.h"
-//#include "stdlib.h"
+#include "stdlib.h"
 
 LLVMDLL_FUNC(void) LLVMInitializeAllTargetsDynamicLibrary(){
 	LLVMInitializeAllTargets();
@@ -8,7 +8,6 @@ LLVMDLL_FUNC(void) LLVMInitializeAllTargetsDynamicLibrary(){
 
 LLVMDLL_FUNC(bool) LLVMInitializeNativeTargetDynamicLibrary(){
 	LLVMBool success = LLVMInitializeNativeTarget();
-	printf("initialization status: %d", success);
 	return success;
 }
 

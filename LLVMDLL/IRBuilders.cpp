@@ -1,3 +1,5 @@
+#include "llvm/IR/LLVMContext.h"
+#include "llvm/IR/IRBuilder.h"
 #include "llvm-c/Core.h"
 #include "DllApi.h"
 

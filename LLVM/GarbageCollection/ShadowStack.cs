@@ -83,7 +83,7 @@ namespace LLVM.GarbageCollection
 
 		public void VisitRoots(RootVisitor visitor)
 		{
-			Contract.Requires<ArgumentNullException>(rootVisitor != null);
+			Contract.Requires<ArgumentNullException>(visitor != null);
 
 			for (StackEntry roots = GetRoot();
 				roots.FrameMap != IntPtr.Zero;

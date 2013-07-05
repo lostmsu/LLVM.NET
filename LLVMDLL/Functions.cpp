@@ -1,3 +1,4 @@
+#include "llvm/IR/Value.h"
 #include "llvm-c/Core.h"
 #include "DllApi.h"
 

@@ -1,3 +1,5 @@
+#include "llvm/IR/DerivedTypes.h"
+#include "llvm/IR/LLVMContext.h"
 #include "llvm-c/Core.h"
 #include "DllApi.h"
 

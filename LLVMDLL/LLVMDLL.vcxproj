@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -33,27 +33,27 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -74,36 +74,36 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)\..\bin\$(PlatformTarget)\</OutDir>
-    <TargetName>LLVM-3.1</TargetName>
-    <LibraryPath>$(ProjectDir)\..\..\3.1\IA32\lib\$(Configuration);$(LibraryPath)</LibraryPath>
+    <TargetName>LLVM-3.3</TargetName>
+    <LibraryPath>$(ProjectDir)\..\..\3.3\IA32\lib\$(Configuration);$(LibraryPath)</LibraryPath>
     <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
-    <IncludePath>$(ProjectDir)\..\..\3.1\IA32\include;$(ProjectDir)\..\..\3.1\source\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\..\..\3.3\IA32\include;$(ProjectDir)\..\..\3.3\source\include;$(IncludePath)</IncludePath>
     <IntDir>$(ProjectDir)\..\temp\$(Configuration)\$(PlatformTarget)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)\..\bin\$(PlatformTarget)\</OutDir>
-    <TargetName>LLVM-3.1</TargetName>
-    <LibraryPath>$(ProjectDir)\..\..\3.1\AMD64\lib\$(Configuration);$(LibraryPath)</LibraryPath>
-    <IncludePath>$(ProjectDir)\..\..\3.1\AMD64\include;$(ProjectDir)\..\..\3.1\source\include;$(IncludePath)</IncludePath>
+    <TargetName>LLVM-3.3</TargetName>
+    <LibraryPath>$(ProjectDir)\..\..\3.3\AMD64\lib\$(Configuration);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\..\..\3.3\AMD64\include;$(ProjectDir)\..\..\3.3\source\include;$(IncludePath)</IncludePath>
     <IntDir>$(ProjectDir)\..\temp\$(Configuration)\$(PlatformTarget)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)\..\bin\$(PlatformTarget)\</OutDir>
-    <TargetName>LLVM-3.1</TargetName>
-    <LibraryPath>$(ProjectDir)\..\..\3.1\IA32\lib\$(Configuration);$(LibraryPath)</LibraryPath>
+    <TargetName>LLVM-3.3</TargetName>
+    <LibraryPath>$(ProjectDir)\..\..\3.3\IA32\lib\$(Configuration);$(LibraryPath)</LibraryPath>
     <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
-    <IncludePath>$(ProjectDir)\..\..\3.1\IA32\include;$(ProjectDir)\..\..\3.1\source\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\..\..\3.3\IA32\include;$(ProjectDir)\..\..\3.3\source\include;$(IncludePath)</IncludePath>
     <IntDir>$(ProjectDir)\..\temp\$(Configuration)\$(PlatformTarget)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)\..\bin\$(PlatformTarget)\</OutDir>
-    <TargetName>LLVM-3.1</TargetName>
-    <LibraryPath>$(ProjectDir)\..\..\3.1\AMD64\lib\$(Configuration);$(LibraryPath)</LibraryPath>
+    <TargetName>LLVM-3.3</TargetName>
+    <LibraryPath>$(ProjectDir)\..\..\3.3\AMD64\lib\$(Configuration);$(LibraryPath)</LibraryPath>
     <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
-    <IncludePath>$(ProjectDir)\..\..\3.1\AMD64\include;$(ProjectDir)\..\..\3.1\source\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\..\..\3.3\AMD64\include;$(ProjectDir)\..\..\3.3\source\include;$(IncludePath)</IncludePath>
     <IntDir>$(ProjectDir)\..\temp\$(Configuration)\$(PlatformTarget)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

@@ -12,7 +12,7 @@ namespace LLVM.NativeLibrary
         public static void Load()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            DynamicLibrary.Load(assembly, "LLVM-3.1", "LLVM.NativeLibrary");
+            DynamicLibrary.Load(assembly, "LLVM-3.3", "LLVM.NativeLibrary");
         }
     }
 }

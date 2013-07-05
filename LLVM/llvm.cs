@@ -11,7 +11,7 @@ namespace LLVM
 
 	static class llvm
 	{
-		const string llvmdll = "LLVM-3.1";
+		const string llvmdll = "LLVM-3.3";
 
 		#region Types
 		[DllImport(llvmdll, CallingConvention=CC.Cdecl, EntryPoint = "LLVMInt32TypeInContext")]

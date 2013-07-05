@@ -33,8 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Lost.Native, Version=0.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Lost.Native">
       <HintPath>..\packages\Lost.Native.0.0.4\lib\Lost.Native.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -50,11 +49,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\bin\x64\LLVM-3.1.dll">
-      <Link>AMD64\LLVM-3.1.dll</Link>
+    <EmbeddedResource Include="..\bin\x64\LLVM-3.3.dll">
+      <Link>AMD64\LLVM-3.3.dll</Link>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\bin\x86\LLVM-3.1.dll">
-      <Link>IA32\LLVM-3.1.dll</Link>
+    <EmbeddedResource Include="..\bin\x86\LLVM-3.3.dll">
+      <Link>IA32\LLVM-3.3.dll</Link>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -62,8 +61,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>"$(windir)\Microsoft.NET\Framework\v4.0.30319\msbuild.exe" ..\..\..\LLVMDLL\LLVMDLL.vcxproj /p:configuration=Release /p:Platform=Win32
-"$(windir)\Microsoft.NET\Framework\v4.0.30319\msbuild.exe" ..\..\..\LLVMDLL\LLVMDLL.vcxproj /p:configuration=Release /p:Platform=x64</PreBuildEvent>
+    <PreBuildEvent>"$(windir)\Microsoft.NET\Framework\v4.0.30319\msbuild.exe" ..\..\..\LLVMDLL\LLVMDLL.vcxproj /p:configuration=Debug /p:Platform=Win32
+"$(windir)\Microsoft.NET\Framework\v4.0.30319\msbuild.exe" ..\..\..\LLVMDLL\LLVMDLL.vcxproj /p:configuration=Debug /p:Platform=x64</PreBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
