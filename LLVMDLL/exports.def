@@ -6,6 +6,8 @@ LLVMSetLazyFunctionCallback
 LLVMAddGlobalValue
 LLVMInitializeAllTargetsDynamicLibrary
 LLVMInitializeNativeTargetDynamicLibrary
+LLVMPrint
+LLVMGetValueNameAsBSTR
 LLVMRegisterExternalGC
 LLVMCreateExternalGC
 LLVMStructCreateEmptyTypeInContext

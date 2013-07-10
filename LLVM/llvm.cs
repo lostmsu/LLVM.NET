@@ -153,6 +153,19 @@ namespace LLVM
 
 		[DllImport(llvmdll, CallingConvention = CC.Cdecl, EntryPoint = "LLVMDumpValue")]
 		public static extern void Dump(IntPtr valueref);
+
+		[DllImport(llvmdll, CallingConvention = CC.Cdecl, EntryPoint = "LLVMPrint")]
+		[return: MarshalAs(UnmanagedType.BStr)]
+		public static extern string Print(IntPtr valueref);
+		#endregion
+
+		#region Value common
+		[DllImport(llvmdll, CallingConvention = CC.Cdecl, EntryPoint = "LLVMSetValueName")]
+		public static extern void SetName(IntPtr valueref, string name);
+
+		[DllImport(llvmdll, CallingConvention = CC.Cdecl, EntryPoint = "LLVMGetValueNameAsBSTR")]
+		[return: MarshalAs(UnmanagedType.BStr)]
+		public static extern string GetName(IntPtr valueref);
 		#endregion
 
 		#region Constants

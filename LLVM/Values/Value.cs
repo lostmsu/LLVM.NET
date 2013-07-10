@@ -26,5 +26,22 @@ namespace LLVM {
 		{
 			llvm.Dump(this);
 		}
+
+		public string PrintToString()
+		{
+			return llvm.Print(this);
+		}
+
+		public string Name
+		{
+			get
+			{
+				return llvm.GetName(this);
+			}
+			set
+			{
+				llvm.SetName(this, value);
+			}
+		}
 	}
 }
