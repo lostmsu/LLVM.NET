@@ -1,0 +1,11 @@
+syntax: glob
+obj/*
+Bin/*
+bin/*
+temp/
+PerformanceLogs/
+*.user
+*.suo
+packages/
+*.ncrunchsolution
+Thumbs.db

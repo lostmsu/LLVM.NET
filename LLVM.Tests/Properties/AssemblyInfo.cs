@@ -5,11 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LLVM")]
+[assembly: AssemblyTitle("LLVM.Tests")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LLVM .NET")]
-[assembly: AssemblyCopyright("Copyright © Victor Milovanov 2012")]
+[assembly: AssemblyProduct("LLVM.Tests")]
+[assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("db8f5c3e-3f1f-47e1-ad76-165111b21c1e")]
+[assembly: Guid("8a49d983-4673-4cf0-85de-0ac76d0e0ff6")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -31,10 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.0.1")]
-[assembly: AssemblyFileVersion("0.0.1")]
-[assembly: AssemblyDescription("This assembly provides .NET binding to LLVM dynamic library for Win32 and x64. "
-    + "To get the native library itself, you can reference LLVM.NativeLibrary, and call LLVMDLL.Load."
-    + "This will preload an LLVM DLL that matches your current processor architecture.")]
-
-[assembly: InternalsVisibleTo("LLVM.Tests")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

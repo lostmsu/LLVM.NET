@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20617.1 PREVIEW
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LLVMDLL", "LLVMDLL\LLVMDLL.vcxproj", "{8A300218-5591-460B-8111-68D70170C3A6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LLVM", "LLVM\LLVM.csproj", "{218E291B-4EE7-4526-B4F6-EF72FDE40E90}"
@@ -15,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{623072
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LLVM.Tests", "LLVM.Tests\LLVM.Tests.csproj", "{C0722D87-2027-46D5-8593-3C0DCF3137C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +64,14 @@ Global
 		{27F58C59-F117-471D-A02F-B95148E9A323}.Release|Any CPU.Build.0 = Release|Any CPU
 		{27F58C59-F117-471D-A02F-B95148E9A323}.Release|Win32.ActiveCfg = Release|Any CPU
 		{27F58C59-F117-471D-A02F-B95148E9A323}.Release|x64.ActiveCfg = Release|Any CPU
+		{C0722D87-2027-46D5-8593-3C0DCF3137C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0722D87-2027-46D5-8593-3C0DCF3137C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0722D87-2027-46D5-8593-3C0DCF3137C7}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{C0722D87-2027-46D5-8593-3C0DCF3137C7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C0722D87-2027-46D5-8593-3C0DCF3137C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0722D87-2027-46D5-8593-3C0DCF3137C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0722D87-2027-46D5-8593-3C0DCF3137C7}.Release|Win32.ActiveCfg = Release|Any CPU
+		{C0722D87-2027-46D5-8593-3C0DCF3137C7}.Release|x64.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
