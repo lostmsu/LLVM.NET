@@ -9,11 +9,82 @@ namespace LLVM.Tests.Interop
 	{
 		static readonly ClrInterop.Managed interop = new ClrInterop.Managed();
 
+		#region Primitive
 		[TestMethod]
 		public void PrimitiveIn()
 		{
-			var actual = interop.WrapDelegateType(typeof(PrimitiveInDelegate));
-			AssertDelegateTypesEqual(typeof(PrimitiveInDelegateConverted), actual);
+			WrapTest<PrimitiveInDelegate, PrimitiveInDelegateConverted>();
+		}
+
+		[TestMethod]
+		public void PrimitiveRef()
+		{
+			WrapTest<PrimitiveRefDelegate, PrimitiveRefDelegate>();
+		}
+		[TestMethod]
+		public void PrimitiveOut()
+		{
+			WrapTest<PrimitiveOutDelegate, PrimitiveOutDelegate>();
+		}
+		[TestMethod]
+		public void PrimitiveRet()
+		{
+			WrapTest<PrimitiveRetDelegate, PrimitiveRetDelegateConverted>();
+		}
+		#endregion
+
+		#region Struct
+		[TestMethod]
+		public void StructIn()
+		{
+			WrapTest<StructInDelegate, StructInDelegateConverted>();
+		}
+
+		[TestMethod]
+		public void StructRef()
+		{
+			WrapTest<StructRefDelegate, StructRefDelegate>();
+		}
+		[TestMethod]
+		public void StructOut()
+		{
+			WrapTest<StructOutDelegate, StructOutDelegate>();
+		}
+		[TestMethod]
+		public void StructRet()
+		{
+			WrapTest<StructRetDelegate, StructRetDelegateConverted>();
+		}
+		#endregion
+
+		#region Class
+		[TestMethod]
+		public void ClassIn()
+		{
+			WrapTest<ClassInDelegate, ClassInDelegate>();
+		}
+
+		[TestMethod]
+		public void ClassRef()
+		{
+			WrapTest<ClassRefDelegate, ClassRefDelegate>();
+		}
+		[TestMethod]
+		public void ClassOut()
+		{
+			WrapTest<ClassOutDelegate, ClassOutDelegate>();
+		}
+		[TestMethod]
+		public void ClassRet()
+		{
+			WrapTest<ClassRetDelegate, ClassRetDelegate>();
+		}
+		#endregion
+
+		static void WrapTest<TOriginal, TExpected>()
+		{
+			var actual = interop.WrapDelegateType(typeof(TOriginal));
+			AssertDelegateTypesEqual(typeof(TExpected), actual);
 		}
 
 		static void AssertDelegateTypesEqual(System.Type expected, System.Type actual)
@@ -41,6 +112,9 @@ namespace LLVM.Tests.Interop
 		delegate void StructRefDelegate(ref SampleStruct parameter);
 		delegate void StructOutDelegate(out SampleStruct parameter);
 		delegate SampleStruct StructRetDelegate();
+
+		delegate void StructInDelegateConverted(ref SampleStruct parameter);
+		delegate void StructRetDelegateConverted(out SampleStruct parameter);
 		#endregion
 
 		struct SampleStruct{
