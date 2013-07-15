@@ -71,6 +71,8 @@
     <Compile Include="GarbageCollection\NativeGlue.cs" />
     <Compile Include="Instructions\Switch.cs" />
     <Compile Include="Interop\ClrInterop.cs" />
+    <Compile Include="Interop\ClrInterop.Managed.cs" />
+    <Compile Include="Interop\ClrInterop.Native.cs" />
     <Compile Include="Types\ArrayType.cs" />
     <Compile Include="Types\FloatType.cs" />
     <Compile Include="Values\Argument.cs" />

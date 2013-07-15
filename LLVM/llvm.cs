@@ -91,6 +91,9 @@ namespace LLVM
 
 		[DllImport(llvmdll, CallingConvention = CC.Cdecl, EntryPoint = "LLVMSizeOf")]
 		public static extern IntPtr SizeOf(IntPtr typeref);
+
+		[DllImport(llvmdll, CallingConvention = CC.Cdecl, EntryPoint = "LLVMGetTypeContext")]
+		public static extern IntPtr GetTypeContext(IntPtr typeref);
 		#endregion
 
 		#region Modules

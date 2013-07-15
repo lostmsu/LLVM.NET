@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace LLVM.Tests.Interop
 {
 	[TestClass]
-	public class ClrInteropTests
+	public class ManagedTransitionTests
 	{
 		static readonly ClrInterop.Managed interop = new ClrInterop.Managed();
 

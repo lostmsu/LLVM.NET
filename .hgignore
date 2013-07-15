@@ -9,3 +9,5 @@ PerformanceLogs/
 packages/
 *.ncrunchsolution
 Thumbs.db
+LLVM.NET.sdf
+LLVM.NET.opensdf

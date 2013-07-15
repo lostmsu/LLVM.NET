@@ -42,7 +42,7 @@ namespace LLVM {
 		{
 			get
 			{
-				throw new NotImplementedException();
+				return new Context(llvm.GetTypeContext(this));
 			}
 		}
 

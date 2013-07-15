@@ -50,10 +50,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Interop\ClrInteropTests.cs" />
+    <Compile Include="Interop\ManagedTransitionTests.cs" />
+    <Compile Include="Interop\NativeTransitionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LLVM.NativeLibrary\LLVM.NativeLibrary.csproj">
+      <Project>{6bb50a0f-7ac3-4dfc-bbdc-9f57a65d243f}</Project>
+      <Name>LLVM.NativeLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LLVM\LLVM.csproj">
       <Project>{218e291b-4ee7-4526-b4f6-ef72fde40e90}</Project>
       <Name>LLVM</Name>
