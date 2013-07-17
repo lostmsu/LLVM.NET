@@ -81,6 +81,26 @@ namespace LLVM.Tests.Interop
 		}
 		#endregion
 
+		#region Unwrap
+		[TestMethod]
+		public void Unwrap()
+		{
+			WrappedDelegate wrapped = Wrapped;
+			var unwrapped = (UnwrappedDelegate)interop.Unwrap(wrapped, typeof(UnwrappedDelegate), false);
+			int actual = unwrapped(5);
+			Assert.AreEqual(25, actual);
+		}
+
+		delegate void WrappedDelegate(int param, out int retval);
+
+		void Wrapped(int param, out int retval)
+		{
+			retval = param * param;
+		}
+
+		delegate int UnwrappedDelegate(int param);
+		#endregion
+
 		static void WrapTest<TOriginal, TExpected>()
 		{
 			var actual = interop.WrapDelegateType(typeof(TOriginal));

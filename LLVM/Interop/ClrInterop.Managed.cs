@@ -34,16 +34,16 @@ namespace LLVM.Interop
 
 			readonly ModuleBuilder module;
 
-			public Delegate Unwrap(IntPtr wrapperEntryPoint, Type delegateType)
+			public Delegate Unwrap(IntPtr wrapperEntryPoint, Type delegateType, bool debug)
 			{
 				var wrapperType = WrapDelegateType(delegateType);
 				var wrappedManagedDelegate = Marshal.GetDelegateForFunctionPointer(wrapperEntryPoint, wrapperType);
 
-				var result = Unwrap(wrappedManagedDelegate, delegateType);
+				var result = Unwrap(wrappedManagedDelegate, delegateType, debug);
 				return result;
 			}
 
-			public Delegate Unwrap(Delegate wrapped, Type delegateType)
+			internal Delegate Unwrap(Delegate wrapped, Type delegateType, bool debug)
 			{
 				var signature = delegateType.GetMethod("Invoke");
 				var parameters = signature.GetParameters();
@@ -58,62 +58,26 @@ namespace LLVM.Interop
 				if (returnValue != null)
 					arguments.Add(returnValue);
 				
-				var wrappedExpression = Expression.Constant(wrapped);
-				var wrapperCall = Expression.Call(wrappedExpression, wrapped.GetType().GetMethod("Invoke"), arguments);
+				var wrappedExpression = Expression.Constant(wrapped, wrapped.GetType());
+				var wrapperCall = Expression.Invoke(wrappedExpression, arguments);
 
-				Expression body;
+				var bodyStatements = new List<Expression>();
+
+				if (debug)
+					bodyStatements.Add(Expression.Call(typeof(System.Diagnostics.Debugger).GetMethod("Break")));
+
+				var bodyResult = new List<ParameterExpression>();
 				if (returnValue != null) {
-					body = Expression.Block(
-						new[] { returnValue },
-						new Expression[] { wrapperCall, returnValue }
-					);
+					bodyResult.Add(returnValue);
+					bodyStatements.Add(wrapperCall);
+					bodyStatements.Add(returnValue);
 				} else {
-					body = wrapperCall;
+					bodyStatements.Add(wrapperCall);
 				}
+				var body = Expression.Block(bodyResult, bodyStatements);
 
 				var unwrappedLambda = Expression.Lambda(delegateType, body, parameterExpressions);
 				return unwrappedLambda.Compile();
-			}
-
-			public Delegate Unwrap2(Delegate wrapped, Type delegateType)
-			{				
-				var signature = delegateType.GetMethod("Invoke");
-				var parameters = signature.GetParameters();
-				var unwrapperName = GenerateIdentifier();
-				var unwrapper = new DynamicMethod(unwrapperName, signature.ReturnType, parameters.Select(p => p.ParameterType).ToArray(), module);
-				int position = 1;
-				foreach (var parameter in parameters) {
-					unwrapper.DefineParameter(position, parameter.Attributes, parameter.Name);
-					position++;
-				}
-
-				var gen = unwrapper.GetILGenerator(128);
-				var returnValue =
-					NeedsReturnWrapping(signature.ReturnType)
-					? gen.DeclareLocal(signature.ReturnType)
-					: null;
-
-				position = 0;
-				foreach (var parameter in parameters) {
-					if (NeedsWrapping(parameter)) {
-						gen.Emit(OpCodes.Ldarga_S, checked((byte)position));
-					} else {
-						gen.Emit(OpCodes.Ldarg_S, checked((byte)position));
-					}
-				}
-
-				if (returnValue != null) {
-					gen.Emit(OpCodes.Ldloca_S, returnValue);
-					gen.EmitCall(OpCodes.Call, wrapped.Method, null);
-					gen.Emit(OpCodes.Ldloc, returnValue);
-					gen.Emit(OpCodes.Ret);
-				} else {
-					gen.EmitCall(OpCodes.Call, wrapped.Method, null);
-					gen.Emit(OpCodes.Ret);
-				}
-
-				var result = unwrapper.CreateDelegate(delegateType);
-				return result;
 			}
 
 			#region Delegate type wrapping

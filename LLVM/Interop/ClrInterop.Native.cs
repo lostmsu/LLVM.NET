@@ -9,7 +9,7 @@ namespace LLVM.Interop
 	{
 		internal class Native
 		{
-			public Function Wrap(Function function, Module module)
+			public Function Wrap(Function function, Module module, bool debug)
 			{
 				// TODO: varargs
 
@@ -21,11 +21,28 @@ namespace LLVM.Interop
 				var block = new Block("", module.Context, wrapper);
 				var gen = new InstructionBuilder(module.Context, block);
 
+				if (debug)
+					EmitDebugBreak(gen, module);
+
 				var callResult = WrapCall(function, wrapper, gen);
 
 				GenerateReturn(originalType, wrapper, gen, callResult);
 
+				if (debug) {
+					var wrapperSource = wrapper.PrintToString();
+					System.Diagnostics.Debug.Print(wrapperSource);
+				}
+
 				return wrapper;
+			}
+
+			private void EmitDebugBreak(InstructionBuilder gen, Module module)
+			{
+				var debugBreak = module.GetFunction("LLVMDebugBreak");
+				if (debugBreak == null)
+					throw new NotSupportedException("Module must have LLVMDebugBreak function defined");
+
+				gen.Call(debugBreak);
 			}
 
 			internal FunctionType WrapFunctionType(FunctionType originalType)
@@ -50,7 +67,9 @@ namespace LLVM.Interop
 					gen.Return(callResult);
 					break;
 				default:
-					gen.Store(callResult, wrapper[originalType.ArgumentCount]);
+					var retval = wrapper[originalType.ArgumentCount];
+					retval.Name = "retval";
+					gen.Store(callResult, retval);
 					gen.Return();
 					break;
 				}
@@ -62,10 +81,14 @@ namespace LLVM.Interop
 				var originalArgs = function.Type.ArgumentTypes;
 				var callArgs = new List<Value>();
 				for (int i = 0; i < originalArgs.Length; i++) {
+					var arg = wrapper[i];
+					if (string.IsNullOrEmpty(arg.Name))
+						arg.Name = "arg" + i;
+
 					if (originalArgs[i].Kind == wrapperArgs[i].Kind) {
-						callArgs.Add(wrapper[i]);
+						callArgs.Add(arg);
 					} else {
-						var value = gen.Load(wrapper[i]);
+						var value = gen.Load(arg);
 						callArgs.Add(value);
 					}
 				}
@@ -89,10 +112,10 @@ namespace LLVM.Interop
 			private Type WrapArg(Type argType)
 			{
 				switch (argType.Kind) {
-				case TypeKind.Struct:
-					return PointerType.Get(argType);
-				default:
+				case TypeKind.Pointer:
 					return argType;
+				default:
+					return PointerType.Get(argType);
 				}
 			}
 		}

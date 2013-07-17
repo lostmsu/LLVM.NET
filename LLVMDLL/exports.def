@@ -4,6 +4,7 @@ EXPORTS
 LazyFunctionWrapper
 LLVMSetLazyFunctionCallback
 LLVMAddGlobalValue
+LLVMDebugBreak
 LLVMInitializeAllTargetsDynamicLibrary
 LLVMInitializeNativeTargetDynamicLibrary
 LLVMPrint

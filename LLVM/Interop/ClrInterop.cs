@@ -26,20 +26,20 @@ namespace LLVM.Interop
 		readonly Native nativeWrapper;
 		readonly Managed managedWrapper;
 
-		public T GetDelegate<T>(Function function, Module module)
+		public T GetDelegate<T>(Function function, Module module, bool debug = false)
 			where T : class
 		{
-			var result = GetDelegate(function, typeof(T), module);
+			var result = GetDelegate(function, typeof(T), module, debug);
 			return result as T;
 		}
 
-		public Delegate GetDelegate(Function function, System.Type delegateType, Module module)
+		public Delegate GetDelegate(Function function, System.Type delegateType, Module module, bool debug = false)
 		{
-			var wrapper = nativeWrapper.Wrap(function, module);
+			var wrapper = nativeWrapper.Wrap(function, module, debug);
 
-			var addr = executionEngine.GetPointer(function);
+			var addr = executionEngine.GetPointer(wrapper);
 
-			var result = managedWrapper.Unwrap(addr, delegateType);
+			var result = managedWrapper.Unwrap(addr, delegateType, debug);
 
 			return result;
 		}

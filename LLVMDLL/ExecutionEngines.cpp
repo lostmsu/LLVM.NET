@@ -2,6 +2,8 @@
 #include "llvm-c/ExecutionEngine.h"
 #include "DllApi.h"
 
+#include <Windows.h>
+
 using namespace llvm;
 
 void* (*lazyFunction)(const char* );
@@ -14,4 +16,9 @@ LLVMDLL_FUNC(void) LLVMSetLazyFunctionCallback(LLVMExecutionEngineRef EE, void* 
 	if (!lazyFunction)
 		lazyFunction = callback;
 	return unwrap(EE)->InstallLazyFunctionCreator(LazyFunctionWrapper);
+}
+
+LLVMDLL_FUNC(void) LLVMDebugBreak(){
+	if (IsDebuggerPresent())
+		DebugBreak();
 }
