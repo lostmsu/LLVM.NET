@@ -34,11 +34,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LLVM">
-      <HintPath>..\..\packages\LLVM.0.1.0\lib\LLVM.dll</HintPath>
+    <Reference Include="LLVM, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\LLVM.0.1.1\lib\LLVM.dll</HintPath>
     </Reference>
-    <Reference Include="LLVM.NativeLibrary">
-      <HintPath>..\..\packages\LLVM.NativeLibrary.0.1.0.1\lib\LLVM.NativeLibrary.dll</HintPath>
+    <Reference Include="LLVM.NativeLibrary, Version=3.3.6794.28185, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\LLVM.NativeLibrary.3.3.0\lib\LLVM.NativeLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Lost.Native">
       <HintPath>..\..\packages\Lost.Native.0.0.4\lib\Lost.Native.dll</HintPath>
