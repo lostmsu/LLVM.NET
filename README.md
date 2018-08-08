@@ -1,6 +1,9 @@
 LLVM.NET
 ========
 
+C# wrapper: [![nuget](https://img.shields.io/nuget/v/LLVM.svg)](https://www.nuget.org/packages/LLVM/)
+LLVM binaries: [![nuget](https://img.shields.io/nuget/v/LLVM.NativeLibrary.svg)](https://www.nuget.org/packages/LLVM.NativeLibrary/)
+
 Mono/.NET bindings to LLVM compiler framework
 
 ## Building LLVM.NativeLibrary
