@@ -61,8 +61,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>"$(windir)\Microsoft.NET\Framework\v4.0.30319\msbuild.exe" ..\..\..\LLVMDLL\LLVMDLL.vcxproj /p:configuration=Debug /p:Platform=Win32
-"$(windir)\Microsoft.NET\Framework\v4.0.30319\msbuild.exe" ..\..\..\LLVMDLL\LLVMDLL.vcxproj /p:configuration=Debug /p:Platform=x64</PreBuildEvent>
+    <PreBuildEvent>"$(MSBuildBinPath)\msbuild.exe" ..\..\..\LLVMDLL\LLVMDLL.vcxproj /p:configuration=$(Configuration) /p:Platform=Win32
+"$(MSBuildBinPath)\msbuild.exe" ..\..\..\LLVMDLL\LLVMDLL.vcxproj /p:configuration=$(Configuration) /p:Platform=x64</PreBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
