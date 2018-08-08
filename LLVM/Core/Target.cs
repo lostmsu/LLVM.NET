@@ -12,7 +12,7 @@ namespace LLVM
 		/// </summary>
 		public static void InitializeNative()
 		{
-			if (llvm.InitializeNative())
+			if (!llvm.InitializeNative())
 				throw new NotSupportedException("There's no native platform here");
 		}
 	}
